@@ -1,0 +1,197 @@
+import React, { useState } from "react";
+import { ArrowRight, Clock, Zap, Heart, Settings } from "lucide-react";
+
+const DailyRhythmOrganizerGallery = () => {
+  const [activeMockup, setActiveMockup] = useState(0);
+  
+  const mockups = [
+    {
+      id: 1,
+      title: "Cubo de Madera con Luz LED Superior",
+      description: "Cubo minimalista de 8 cm con anillo LED que cambia de color según la actividad programada.",
+      features: ["Madera clara con acabado mate", "Anillo LED superior multicolor", "Pulso suave de recordatorio", "Base antideslizante"],
+      colors: ["Azul (estudio/trabajo)", "Verde (gimnasio)", "Ámbar (tiempo libre)"]
+    },
+    {
+      id: 2,
+      title: "Disco Cerámico con Luz Ambiental",
+      description: "Disco plano de cerámica blanca que emite una luz ambiental suave para cada transición de actividad.",
+      features: ["Cerámica blanca mate", "Luz ambiental uniforme", "Vibración sutil integrada", "Diseño ultra minimalista"],
+      colors: ["Brillo cálido (descanso)", "Tonos fríos (actividad)"]
+    },
+    {
+      id: 3,
+      title: "Barra Minimalista de Madera",
+      description: "Barra alargada con tira LED frontal que cambia de color y ofrece recordatorios sutiles.",
+      features: ["Madera oscura premium", "Tira LED frontal", "Vibración integrada", "Botón táctil para control"],
+      colors: ["Transiciones de color fluidas", "Personalizable via app"]
+    },
+    {
+      id: 4,
+      title: "Cubo Transparente con Núcleo Luminoso",
+      description: "Diseño contemporáneo con exterior de acrílico y núcleo de madera que ilumina con luz difusa.",
+      features: ["Acrílico transparente", "Núcleo de madera luminoso", "Sensor de proximidad", "Efectos de luz suaves"],
+      colors: [
+        "Azul (estudio/trabajo)",
+        "Verde (gimnasio)",
+        "Ámbar (tiempo libre)"
+      ]
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Organizador de Ritmo Diario</h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Diseños minimalistas que guían tu día mediante señales sutiles sin pantallas ni distracciones
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Mockup Gallery */}
+          <div className="space-y-8">
+            {mockups.map((mockup, index) => (
+              <div 
+                key={mockup.id}
+                className={`rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 cursor-pointer border-2 ${activeMockup === index ? 'border-blue-500' : 'border-transparent hover:border-gray-200'}`}
+                onClick={() => setActiveMockup(index)}
+              >
+                <div className="flex flex-col md:flex-row items-start gap-6">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{mockup.title}</h3>
+                    <p className="text-gray-600 mb-4">{mockup.description}</p>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-medium text-gray-900 mb-2 flex items-center gap-1">
+                        <Zap size={16} />
+                        <span>Características</span>
+                      </h4>
+                      <ul className="text-gray-600 list-disc pl-5 space-y-1">
+                        {mockup.features.map((feature, i) => (
+                          <li key={i}>{feature}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-2 flex items-center gap-1">
+                        <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-purple-500"></div>
+                        <span>Señales de color</span>
+                      </h4>
+                      <ul className="text-gray-600 list-disc pl-5 space-y-1">
+                        {mockup.colors.map((color, i) => (
+                          <li key={i}>{color}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="w-full md:w-48 flex-shrink-0">
+                    <div className="aspect-square w-full rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-4">
+                      {mockup.id === 1 && (
+                        <img 
+                          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f3fc1a9d-0e65-4386-9aaa-c816f29c7ef5.png" 
+                          alt="Cubo minimalista de madera clara con anillo LED iluminado en la parte superior"
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      )}
+                      {mockup.id === 2 && (
+                        <img 
+                          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/359a8995-68de-4143-ac74-12ce69c455dc.png" 
+                          alt="Disco plano de cerámica blanca con luz ambiental suave emergiendo de su centro"
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      )}
+                      {mockup.id === 3 && (
+                        <img 
+                          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b6b4390d-b442-4068-96d1-5145e8932a44.png" 
+                          alt="Barra alargada de madera oscura con tira LED frontal emitiendo luz tenue"
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      )}
+                      {mockup.id === 4 && (
+                        <img 
+                          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9abf36c0-92e5-4917-9009-d173710bff5e.png" 
+                          alt="Cubo transparente con núcleo de madera que emite una luz ambiental difusa y cálida"
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Feature Highlight */}
+          <div className="sticky top-8 h-fit">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Cómo funciona</h2>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 p-3 rounded-full flex-shrink-0">
+                    <Settings className="text-blue-600" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Configuración sencilla</h3>
+                    <p className="text-gray-600">
+                      Programa tus bloques de tiempo (trabajo, estudio, gimnasio, descanso) mediante una interfaz web simple.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="bg-green-100 p-3 rounded-full flex-shrink-0">
+                    <Clock className="text-green-600" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Transiciones suaves</h3>
+                    <p className="text-gray-600">
+                      El objeto te guía mediante cambios de color y pulsos sutiles que indican cuándo es momento de cambiar de actividad.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="bg-amber-100 p-3 rounded-full flex-shrink-0">
+                    <Heart className="text-amber-600" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Enfoque en el bienestar</h3>
+                    <p className="text-gray-600">
+                      Al incluir el descanso como una "tarea" programada, te aseguras de priorizar tu bienestar mental y físico.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="pt-6 border-t border-gray-200">
+                  <h3 className="font-semibold text-gray-900 mb-4">Materiales y acabados</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-gray-100 p-3 rounded-lg text-center">
+                      <div className="w-12 h-12 bg-amber-200 rounded-full mx-auto mb-2"></div>
+                      <p className="text-sm font-medium">Madera natural</p>
+                    </div>
+                    <div className="bg-gray-100 p-3 rounded-lg text-center">
+                      <div className="w-12 h-12 bg-gray-200 rounded-full mx-auto mb-2"></div>
+                      <p className="text-sm font-medium">Cerámica mate</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <button className="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-2">
+                  Configurar mi organizador
+                  <ArrowRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DailyRhythmOrganizerGallery;
